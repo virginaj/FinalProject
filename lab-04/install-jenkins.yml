@@ -1,0 +1,16 @@
+- name: Install stuff into ec2 hosts
+  hosts: all
+  vars:
+    ansible_ssh_user: ec2-user
+    ansible_ssh_private_key_file: ~/Downloads/fullstack.pem
+  become: yes
+  tasks:
+    - yum: pkg=net-tools state=installed
+    - yum: pkg=git state=installed
+    - yum: pkg=wget state=installed
+    - yum: pkg=java-1.8.0-openjdk state=installed
+    - shell: sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+    - shell: rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+    - yum: pkg=jenkins state=installed
+    - shell : "service jenkins restart"
+    
