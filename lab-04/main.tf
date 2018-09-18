@@ -3,7 +3,7 @@ provider "aws" {
 
   }
 
-data "aws_ami" "lab_04" {
+data "aws_ami" "rhel" {
   most_recent = true
   filter {
     name   = "virtualization-type"
@@ -19,7 +19,7 @@ resource "aws_instance" "web" {
     ]
   key_name = "fullstack"
   tags {
-    Name = "lab_04"
+    Name = "rhel"
   }
   provisioner "remote-exec" {
     inline = [
