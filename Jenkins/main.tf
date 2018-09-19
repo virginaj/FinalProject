@@ -1,7 +1,9 @@
+# Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
-
-  }
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
+  region     = "us-east-1"
+}
 
 data "aws_ami" "rhel" {
   most_recent = true
@@ -32,7 +34,7 @@ resource "aws_instance" "web" {
   }
   }
   
-   provisioner "local-exec" {
-    command = "ansible-playbook -i ${aws_instance.web.public_ip}, install-jenkins.yml"
-    }
+  #  provisioner "local-exec" {
+  #   command = "ansible-playbook -i ${aws_instance.web.public_ip}, install-jenkins.yml"
+  #   }
   }
