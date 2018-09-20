@@ -1,5 +1,10 @@
 import boto3
 
+provider "aws" {
+  region = "us-east-1"
+}
+
+
 def list_volumes():
     ec2_resource = boto3.resource('ec2')
 
