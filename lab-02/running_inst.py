@@ -1,8 +1,5 @@
 import boto3
 
-# provider "aws" {
-#   region = "us-east-1"
-# }
 
 
 def list_volumes():
@@ -14,5 +11,9 @@ def list_volumes():
         print(instance.state)
         for item in instance.volumes.all():
             print item.id
+
+provider "aws" {
+  region = "us-east-1a"
+}
 
 list_volumes()
