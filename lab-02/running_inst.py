@@ -1,4 +1,4 @@
-import boto3
+#import boto3
 
 def list_volumes():
     ec2_resource = boto3.resource('ec2')
