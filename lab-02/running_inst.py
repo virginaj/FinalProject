@@ -12,8 +12,4 @@ def list_volumes():
         for item in instance.volumes.all():
             print item.id
 
-provider "aws" {
-  region = "us-east-1a"
-}
-
 list_volumes()
