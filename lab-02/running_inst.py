@@ -1,6 +1,6 @@
 import boto3
 
-
+kms = boto3.client('kms', region_name='us-east-2')
 
 def list_volumes():
     ec2_resource = boto3.resource('ec2')
